@@ -1,0 +1,22 @@
+<div class="container">
+       <div class="row">
+               <div class="col-12">
+                        <h1>Fazer Login</h1>
+                        
+                        <input class="form-control" name="emailControl" #emailControl="ngModel" type="text"
+                        placeholder="Informe o Email" [(ngModel)]="email" maxlength="60" email required>
+                
+                        <div *ngIf="emailControl.invalid" class="text-danger">
+                        <div *ngIf="emailControl.errors.required && emailControl.touch">Email é obrigatório</div>
+                        <div *ngIf="emailControl.errors.email">Email inválido</div>
+                        </div>
+                
+                        <input name="passwordControl" #passwordControl="ngModel" [(ngModel)]="password" type="password" 
+                                class="form-control" placeholder="Informe sua senha..." required minlength="6" maxlength="30">
+                
+                        <button type="submit" class="btn btn-info btn-block" (click)="logIn()"><i class="fas fa-sign-in-alt"></i> Logar</button>
+                
+                        <button type="submit" (click)="sendResetEmail()" class="btn btn-lg btn-success btn-block text-uppercase"><i class="fa fa-envelope"></i> Recuperar</button>
+               </div>
+       </div>
+</div>

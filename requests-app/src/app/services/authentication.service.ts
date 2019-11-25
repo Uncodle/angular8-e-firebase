@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class Authentication {
+export class AuthenticationService {
     private user: Observable<firebase.User>;
 
     constructor( private fireAuth: AngularFireAuth ){
@@ -21,8 +21,12 @@ export class Authentication {
         return this.fireAuth.auth.signOut();
     }
 
-    resetPassword(email: string): void {
-        this.fireAuth.auth.sendPasswordResetEmail(email);
+    resetPassword(email: string): Promise<void> {
+        return this.fireAuth.auth.sendPasswordResetEmail(email);
+    }
+
+    authUser(): Observable<firebase.User>{
+        return this.fireAuth.user;
     }
 
 }
