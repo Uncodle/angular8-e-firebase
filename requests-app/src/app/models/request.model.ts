@@ -1,6 +1,6 @@
 import { Departament } from './departament.model';
 import { Movement } from './movement.model';
-import { Model } from './../core/model';
+import { Model } from '../core/model';
 
 export class Request extends Model {
     requester: string;
@@ -10,5 +10,4 @@ export class Request extends Model {
     status: string;
     destination: string;
     movements: Movement[];
-
 }
